@@ -20,7 +20,7 @@ def get_gpt_output(user_message):
     return response
 
 @cl.on_message
-async def main(message : str):
-    await cl.Message(content = f"{get_gpt_output(message)['choices'][0]['message']['content']}",).send()
+async def main(message: cl.Message):
+    await cl.Message(content = f"{get_gpt_output(message.content)['choices'][0]['message']['content']}",).send()
 
 
